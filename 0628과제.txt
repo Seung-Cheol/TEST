@@ -1,0 +1,40 @@
+과제 
+
+1.mouseenter (mouseleave)
+
+ mouseover (mouseout)
+
+차이점은?
+
+2.  this 와 $(this) 차이점
+[연습] exercise.html
+
+[선택]1_css_event_3
+
+$(function(){
+var plusFontCnt = 0;
+var minusFontCnt = 0;
+
+$('.fontSize > button').click(function(){
+var buttonValue = new String( $(this).text().trim() );
+if(buttonValue == "+"){
+minusFontCnt=0;
+var currentSize =$("#txt").css("fontSize").replace("px","");
+plusFontCnt++;
+var newSize = parseInt(currentSize)+parseInt(plusFontCnt);
+$('#txt').css('fontSize',newSize);
+}
+else if(buttonValue == "-"){
+plusFontCnt=0;
+var currentSize =$("#txt").css("fontSize").replace("px","");
+minusFontCnt++;
+var newSize = parseInt(currentSize)-parseInt(minusFontCnt);
+$('#txt').css('fontSize',newSize);
+}
+})
+
+// 폰트를 바꾸는 함수
+$('#fontstyle').change(function(){
+$('#txt').css('fontFamily',$(this).val());
+})
+})
