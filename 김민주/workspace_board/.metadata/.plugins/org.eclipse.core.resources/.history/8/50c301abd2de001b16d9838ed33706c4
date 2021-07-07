@@ -1,0 +1,12 @@
+package board_ex.model;
+
+public class  extends Exception{
+	// 디폴트 생성자
+	public MessageException() {
+		super();
+	}
+
+	public MessageException(String error) {
+		super(error);
+	}
+}
