@@ -1,0 +1,5 @@
+package board_ex.model;
+
+public class MessageException {
+
+}
