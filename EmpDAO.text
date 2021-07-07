@@ -1,0 +1,51 @@
+package sample;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+public class EmpDAO {
+
+	// DB 연결 관련 변수 선언
+	String driverName = "oracle.jdbc.driver.OracleDriver";
+	String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
+	String user = "hr";
+	String pass = "1234";
+	
+	public EmpDAO() throws Exception {
+		// 1. 드라이버 로딩 
+		Class.forName(driverName);
+	}
+	
+	public ArrayList<EmpVO> selectEmp() throws Exception {
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {		
+		// 2. 연결객체 얻어오기
+		con = DriverManager.getConnection(url, user, pass);
+		// 3. sql 문장 만들기
+		String sql = "SELECT * FROM employee";
+		// 4. 전송객체 얻어오기
+		ps = con.prepareStatement(sql);
+		// 5. 전송 ( executeUpdate() / executeQuery() )
+		ResultSet rs = ps.executeQuery();
+		ArrayList<EmpVO> list = new ArrayList<EmpVO>();
+		while(rs.next()) {
+			EmpVO vo = new EmpVO();
+			vo.setEno( rs.getInt("ENO"));
+			vo.setEname(rs.getString("ENAME"));
+			vo.setManager(rs.getString("MANAGER"));
+			vo.setJob(rs.getString("JOB"));
+			list.add(vo);
+		}
+		return list;
+		}finally {
+		// 6. 닫기
+		ps.close();
+		con.close();
+		}
+	}
+	
+}
