@@ -1,3 +1,0 @@
-INDEX VERSION 1.130
-E:\workspace\workspace_board\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3669826385.index
-\BBS\src
