@@ -1,0 +1,17 @@
+오늘의 과제
+mouseenter ( mouseleave )
+	vs
+mouseover (mouseout)
+차이점은???
+
+mouseover
+
+mouseenter
+
+
+this와 $(this)의 차이점
+
+
+mouseseenter = 자기 자신 드래그했을떄만 나타남
+
+mouseover = 자기 자식요소에게 마우스 드래그됐을때 자기자신도 나타남
